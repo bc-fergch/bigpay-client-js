@@ -38,7 +38,10 @@ export default class PaymentMapper {
             paymentMethod = {},
         } = data;
 
+        console.log('PAYMENT', JSON.stringify(payment))
+
         const payload = {
+            intent_id: payment.intent_id ? payment.intent_id : null,
             device_info: payment.deviceSessionId ? payment.deviceSessionId : null,
             device: orderMeta.deviceFingerprint ? { fingerprint_id: orderMeta.deviceFingerprint } : null,
             gateway: this.paymentMethodIdMapper.mapToId(paymentMethod),
