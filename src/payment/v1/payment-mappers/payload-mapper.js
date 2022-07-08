@@ -56,8 +56,6 @@ export default class PayloadMapper {
     mapToPayload(data) {
         const { order = {}, additionalAction } = data;
 
-        console.log('PAYLOAD', JSON.stringify(data))
-
         return omitNil({
             customer: this.customerMapper.mapToCustomer(data),
             notify_url: order.callbackUrl,
